@@ -1,7 +1,6 @@
 import React, { useEffect, useRef,useState } from 'react';
 import { ChevronDown, Battery, Wifi, Compass, Gauge, Power, Shield, Zap, Clock, Cloud, Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
 import { Menu, X, Plane, Star, Package } from "lucide-react";
-import droneImage from "./download.png";
 
 function App() {
   const droneRef = useRef<HTMLDivElement>(null);
@@ -11,19 +10,18 @@ function App() {
   useEffect(() => {
     const handleScroll = () => {
       if (droneRef.current && containerRef.current) {
-        const scrollY = window.scrollY;
-        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-
-        // Drone moves up as you scroll
-        const translateY = Math.max(-scrollY * 0.8, -600); // Moves drone up but limits max height
-
-        // Shrinks the drone to simulate moving away
-        const scale = Math.max(1 - scrollY / maxScroll, 0.4);
-
-        // Fades out the drone
-        const opacity = Math.max(1 - scrollY / (maxScroll * 0.6), 0);
-
-        droneRef.current.style.transform = `translateY(${translateY}px) scale(${scale})`;
+        const scrolled = window.scrollY;
+        const containerHeight = containerRef.current.offsetHeight;
+        const rotateY = (scrolled / containerHeight) * 360;
+        const translateZ = Math.min(scrolled * 0.5, 200);
+        const opacity = Math.max(1 - (scrolled / containerHeight) * 2, 0);
+        
+        droneRef.current.style.transform = `
+          perspective(1000px)
+          rotateY(${rotateY}deg)
+          translateZ(${translateZ}px)
+          translateY(${scrolled * 0.2}px)
+        `;
         droneRef.current.style.opacity = opacity.toString();
       }
     };
@@ -108,18 +106,50 @@ function App() {
       <div ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-black z-0" />
         
-       {/* Flying Drone Animation */}
-       <div
+        {/* Animated Drone */}
+        <div 
           ref={droneRef}
-          className="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-10 transition-transform duration-100 ease-out"
+          className="absolute z-10 w-full max-w-2xl transition-transform duration-100 ease-out"
         >
-          <img
-            src={droneImage} // Replace with your actual drone image
-            alt="Flying Drone"
-            className="w-64 md:w-80 lg:w-96"
-          />
+          <div className="relative">
+            {/* Main Drone Body */}
+            <div className="relative mx-auto w-[600px] h-[400px] bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl shadow-2xl border border-blue-500/30 backdrop-blur-sm">
+              {/* Cockpit */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[200px] bg-blue-400/10 rounded-full border border-blue-400/30 backdrop-blur-md">
+                <div className="absolute inset-2 rounded-full bg-gradient-to-b from-blue-500/20 to-transparent" />
+              </div>
+              
+              {/* Rotors */}
+              {[...Array(4)].map((_, i) => (
+                <div
+                  key={i}
+                  className={`absolute w-32 h-32 ${
+                    i === 0 ? 'top-0 left-0' :
+                    i === 1 ? 'top-0 right-0' :
+                    i === 2 ? 'bottom-0 left-0' :
+                    'bottom-0 right-0'
+                  }`}
+                >
+                  <div className="absolute inset-0 animate-spin-slow">
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-24 bg-blue-400/30 rounded-full" />
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-4 bg-blue-400/30 rounded-full" />
+                  </div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-blue-500 rounded-full shadow-lg shadow-blue-500/50" />
+                </div>
+              ))}
+              
+              {/* LED Strips */}
+              <div className="absolute bottom-4 left-4 right-4 flex justify-between">
+                <div className="w-24 h-2 bg-blue-500 rounded-full animate-pulse" />
+                <div className="w-24 h-2 bg-blue-500 rounded-full animate-pulse" />
+              </div>
+            </div>
+            
+            {/* Glow Effects */}
+            <div className="absolute inset-0 bg-blue-500/20 rounded-3xl filter blur-xl" />
+            <div className="absolute -inset-4 bg-blue-500/10 rounded-[2rem] filter blur-2xl" />
+          </div>
         </div>
-        
 
         {/* Hero Content */}
         <div className="relative z-20 text-center px-4">
@@ -484,7 +514,7 @@ function App() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Email</h3>
-                  <p className="text-white/70">contact@IRAWH</p>
+                  <p className="text-white/70">contact@nexusone.tech</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -493,7 +523,7 @@ function App() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Phone</h3>
-                  <p className="text-white/70">+1 (888) IRAWH</p>
+                  <p className="text-white/70">+1 (888) NEXUS-ONE</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -502,7 +532,7 @@ function App() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Location</h3>
-                  <p className="text-white/70">Tamilnadu, India</p>
+                  <p className="text-white/70">Silicon Valley, CA</p>
                 </div>
               </div>
             </div>
@@ -578,7 +608,7 @@ function App() {
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-white/10 text-center text-white/50">
-            <p>© IRAWH All rights reserved.</p>
+            <p>© 2025 NEXUS ONE. All rights reserved.</p>
           </div>
         </div>
       </footer>

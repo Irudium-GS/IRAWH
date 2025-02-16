@@ -1,6 +1,7 @@
 import React, { useEffect, useRef,useState } from 'react';
 import { ChevronDown, Battery, Wifi, Compass, Gauge, Power, Shield, Zap, Clock, Cloud, Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
 import { Menu, X, Plane, Star, Package } from "lucide-react";
+import logo from '/src/FULL LOCKUP.png';
 
 function App() {
   const droneRef = useRef<HTMLDivElement>(null);
@@ -40,7 +41,7 @@ function App() {
         <a href="/">
           {/* Logo Image */}
           <img
-            src="./src/FULL LOCKUP.png"  // Replace with your logo path
+            src={logo}  // Replace with your logo path
             alt="IRAWH Logo"
             className="h-10 " // You can adjust the size as needed
           />

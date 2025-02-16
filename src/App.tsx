@@ -40,7 +40,7 @@ function App() {
         <a href="/">
           {/* Logo Image */}
           <img
-            src="/src/FULL LOCKUP.png"  // Replace with your logo path
+            src="./src/FULL LOCKUP.png"  // Replace with your logo path
             alt="IRAWH Logo"
             className="h-10 " // You can adjust the size as needed
           />

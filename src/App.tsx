@@ -33,27 +33,27 @@ function App() {
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden">
     {/* Navbar */}
-    <nav className="bg-black/80 fixed top-0 left-0 right-0 z-50 shadow-lg">
+    <nav className="bg-white/100 fixed top-0 left-0 right-0 z-50 shadow-lg">
     <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
       {/* Logo */}
-      <div className="text-white text-2xl font-semibold">
+      <div className="text-black text-2xl font-semibold">
         <a href="/">
           {/* Logo Image */}
-          <img 
-            src="https://unsplash.com/photos/silver-mercedes-benz-emblem-on-blue-surface-5MlBMYDsGBY"  // Replace with your logo path
+          <img
+            src="/src/FULL LOCKUP.png"  // Replace with your logo path
             alt="IRAWH Logo"
-            className="h-10" // You can adjust the size as needed
+            className="h-10 " // You can adjust the size as needed
           />
         </a>
       </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8">
-          <a href="#home" className="text-white hover:text-blue-400 transition-colors">Home</a>
-          <a href="#about" className="text-white hover:text-blue-400 transition-colors">About</a>
-          <a href="#product" className="text-white hover:text-blue-400 transition-colors">Product</a>
-          <a href="#career" className="text-white hover:text-blue-400 transition-colors">Careers</a>
-          <a href="#contact" className="text-white hover:text-blue-400 transition-colors">Contact</a>
+          <a href="#home" className="text-black hover:text-blue-400 transition-colors">Home</a>
+          <a href="#about" className="text-black hover:text-blue-400 transition-colors">About</a>
+          <a href="#product" className="text-black hover:text-blue-400 transition-colors">Product</a>
+          <a href="#career" className="text-black hover:text-blue-400 transition-colors">Careers</a>
+          <a href="#contact" className="text-black hover:text-blue-400 transition-colors">Contact</a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -273,7 +273,7 @@ function App() {
 </div>
 
 
-      {/* HUD-style overlay */}
+      {/* HUD-style overlay 
       <div className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-start pointer-events-none">
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2 text-blue-400">
@@ -296,7 +296,7 @@ function App() {
             <span>320 km/h</span>
           </div>
         </div>
-      </div>
+      </div>*/}
 
       {/* Specs Section }
       <div className="relative bg-black/90 py-32">
@@ -514,7 +514,7 @@ function App() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Email</h3>
-                  <p className="text-white/70">contact@nexusone.tech</p>
+                  <p className="text-white/70">contact@irawh</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -523,7 +523,7 @@ function App() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Phone</h3>
-                  <p className="text-white/70">+1 (888) NEXUS-ONE</p>
+                  <p className="text-white/70">+1 (888) IRAWH</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -608,7 +608,7 @@ function App() {
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-white/10 text-center text-white/50">
-            <p>© 2025 NEXUS ONE. All rights reserved.</p>
+            <p>© 2025 IRAWH. All rights reserved.</p>
           </div>
         </div>
       </footer>

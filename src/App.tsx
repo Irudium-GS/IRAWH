@@ -515,7 +515,7 @@ function App() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Email</h3>
-                  <p className="text-white/70">contact@irawh</p>
+                  <p className="text-white/70">irawhaviation@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -524,7 +524,7 @@ function App() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Phone</h3>
-                  <p className="text-white/70">+1 (888) IRAWH</p>
+                  <p className="text-white/70">+91 7305081231</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -533,7 +533,7 @@ function App() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Location</h3>
-                  <p className="text-white/70">Silicon Valley, CA</p>
+                  <p className="text-white/70">Update soon</p>
                 </div>
               </div>
             </div>
